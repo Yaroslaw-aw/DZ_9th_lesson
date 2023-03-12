@@ -9,10 +9,10 @@ namespace DZ_9th_lesson
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Функция Аккермана от n и m");
+            Console.WriteLine("Функция Аккермана от m и n");
 
-            int n = Input("Введите n: ");
             int m = Input("Введите m: ");
+            int n = Input("Введите n: ");            
 
             if (m < 0 || n < 0)
             {
@@ -20,18 +20,18 @@ namespace DZ_9th_lesson
             }
             else
             {
-                Console.WriteLine($"Функция Аккермана от {n}(n) и {m}(m) равна: {Akkerman(n, m)}");
+                Console.WriteLine($"Функция Аккермана от {m}(m) и {n}(n) равна: {Akkerman(n, m)}");
             }
 
             // Вычисление функции Аккермана
-            int Akkerman(int n, int m)
+            int Akkerman(int m, int n)
             {
-                if (n == 0)
-                    return m + 1;
-                else if (m == 0)
-                    return Akkerman(n - 1, 1);
+                if (m == 0)
+                    return n + 1;
+                else if (n == 0)
+                    return Akkerman(m - 1, 1);
                 else
-                return Akkerman(n - 1, Akkerman(n, m - 1));
+                return Akkerman(m - 1, Akkerman(m, n - 1));
             }
 
 

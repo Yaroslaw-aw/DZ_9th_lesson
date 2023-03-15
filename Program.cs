@@ -12,6 +12,7 @@ namespace DZ_9th_lesson
             Console.WriteLine("Функция Аккермана от m и n");
 
             int m = Input("Введите m: ");
+            Console.WriteLine(m);
             int n = Input("Введите n: ");            
 
             if (m < 0 || n < 0)
@@ -38,18 +39,21 @@ namespace DZ_9th_lesson
             // Ввод значения
             int Input(string message)
             {
-                int n;
+                int number;
                 Console.Write(message);
-                bool input = int.TryParse(Console.ReadLine(), out n);
+                bool correct_input = int.TryParse(Console.ReadLine(), out number);
 
-                if (!input)
+                if (!correct_input)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Введено неверное значение, попробуйте еще раз");
                     Console.ForegroundColor = ConsoleColor.Gray;
-                    Input(message);
+                    return Input(message);                    
+                }    
+                else
+                {
+                    return number;
                 }
-                return n;
             }
         }
     }
